@@ -1,0 +1,59 @@
+.site-wrap{
+    background-color: #ededed;
+    min-height: 100%;
+}
+
+.log-reg-wrapp{
+    display: inline-block;
+    margin-left: 35%;
+    margin-top: 3rem;
+    font-size: 1.3rem;
+    font-family: 'Muli', sans-serif;
+    background-color: white;
+    padding: 3rem;
+}
+
+.log-reg-wrapp a{
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    -webkit-transition: color orange;
+}
+
+.log-reg-wrapp a:hover{
+    color: orange;
+    border-bottom: 1px solid orange;
+    transition: 0.4s;
+}
+
+.log-reg-wrapp form{
+    text-align: center;
+    border-top: 1px solid black;
+    text-transform: uppercase;
+    padding-top: 2rem;
+}
+
+.log-reg-wrapp input{
+    margin-bottom: 1rem;
+}
+
+.login-input{
+    width: 20rem;
+    height: 2rem;
+}
+
+.row-form-log-reg input{
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    background-color: orange;
+    margin-top: 1rem;
+    display: inline-block;
+    width: 10rem;
+    border: 0;
+}
+
+.login-link{
+    margin: 0 20% 0 20%;
+}
+

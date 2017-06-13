@@ -1,0 +1,70 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-06-01, 16:59:38
+    Author     : marcinwlodarczyk
+*/
+
+.add-recipe-wrapp{
+    position: relative;
+    display: inline-block;
+    margin-left: 30%;
+    margin-top: 3rem;
+    font-size: 1.3rem;
+    font-family: 'Muli', sans-serif;
+    background-color: white;
+    padding: 3rem;
+    border: 1px solid lightslategray;
+}
+
+.add-recipe-wrapp h1{
+    margin: 0;
+    text-transform: uppercase;
+    color: darkorange;
+    letter-spacing: 0.2rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.add-recipe-wrapp span{
+    margin-top: 1rem;
+    display: inline-block;
+    
+}
+
+span.add-recipe-validation-false{
+    color: red;
+}
+
+span.add-recipe-validation-true{
+    color: green;
+}
+
+.add-recipe-button input{
+    position: absolute;
+    width: 20rem;
+    height: 2rem;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    background-color: orange;
+    margin-top: 1rem;
+    right: 10px;
+    bottom: 10px;
+    display: inline-block;
+    width: 10rem;
+    border: 0;
+    -webkit-transition: background-color darkorange;
+}
+
+.add-recipe-button input:hover{
+    background-color: darkorange;
+    transition: 0.5s;
+}
+
+#add-recipe-image{
+    margin-top: 3rem;
+}

@@ -1,0 +1,78 @@
+html{
+    font-family: 'Muli', sans-serif;
+    background-image: url(../img/pattern.png);
+}
+
+body{
+    
+    background-repeat: repeat;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+#welcome{
+    clear: both;
+    color: lightgrey;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.option{
+    clear: both;
+    position: relative;
+    display: block;
+    border-bottom: 1px solid black;
+    color: lightgray;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.plus{
+    position: absolute;
+    height: 90%;
+}
+
+.option:hover{
+    cursor: pointer;
+}
+
+.admin-square{
+    color: white;
+    display: inline-block;
+    width: 100%;
+    margin-top: 0.2rem;
+    background-color: rgba(0,0,0,0.45);
+    overflow: hidden;
+    padding: 1rem;
+}
+
+.admin-square h2{
+    margin-top: 1rem;
+    margin-left: 25%;
+}
+
+#add-recipe{
+   margin-left: 25%;
+}
+
+textarea{
+    background-color: white;
+}
+
+#add-recipe-image{
+    margin-left: 25%;
+}
+
+#add-recipe h1{
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+.nicEdit-main{
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+    outline: none;
+}

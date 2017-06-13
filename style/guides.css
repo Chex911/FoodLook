@@ -1,0 +1,49 @@
+.site-wrap{
+    background-color: #fff3f3;
+}
+
+.guides-h{
+    margin-top: 5rem;
+    text-transform: uppercase;
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+.guide-square{
+    padding: 1rem;
+    height: 300px;
+    margin-bottom: 5rem;
+    background-color: white;
+    background-repeat: no-repeat; 
+    background-size: auto 300px;
+    z-index: 10;
+}
+
+.guide-square p{
+    display: inline-block;
+}
+
+.guide-square h2{
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#guide-01{
+    background-image: url(../img/wine.jpg);
+    background-position: right;
+    text-align: left;
+}
+
+#guide-02{
+    background-image: url(../img/pancakes.jpg);
+    background-position: left;
+    text-align: right;
+}
+
+#guide-03{
+    background-image: url(../img/cutlery.jpg);
+    background-position: right;
+    text-align: left;
+}
+
