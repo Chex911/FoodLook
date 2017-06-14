@@ -232,140 +232,16 @@ This is some text in the div.
 <!--<script src="js/favourite.js" type="text/javascript"></script>-->
 
 <style>
-.clear {
-	clear:both;
-}
-.mrgn-50 {
-	margin-top:50px}
-
-a { color:#FFF; text-decoration:none}
-a:hover { color:#09F; text-decoration:none}
-h1 {
-	margin-top:50px;
-	color:#FFF;
-	font-size:3em; 
-	text-align:center;}
-
-
-.checkbox {
-  float: left;
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-  -moz-border-radius: 80px;
-  -webkit-border-radius: 80px;
-  border-radius: 80px;
-  display: block;
-  background-color: rgba(0, 0, 0, 0.25);
-  margin: 20px;
-  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
-}
-.checkbox:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.checkbox:hover:after {
-  color: white;
-}
-.checkbox:after {
-  line-height: 85px;
-  font-family: "FontAwesome";
-  display: block;
-  content: "";
-  color: rgba(255, 255, 255, 0.5);
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  -moz-transform: scale(0.5);
-  -ms-transform: scale(0.5);
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
-  -moz-border-radius: 100%;
-  -webkit-border-radius: 100%;
-  border-radius: 100%;
-  font-size: 54px;
-  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
-}
-.checkbox.is-checked:after {
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  font-size: 44px;
-  color: white;
-}
-.checkbox.is-checked:hover:after {
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-.check:after {
-  content: "\f00c";
-  background-color: rgba(165, 194, 92, 0);
-}
-.check.is-checked:after {
-  background-color: #a5c25c;
-}
-
-.heart:after {
-  content: "\f004";
-  background-color: rgba(241, 76, 56, 0);
-}
-.heart.is-checked:after {
-  background-color: #f14c38;
-}
-
-.star:after {
-  content: "\f005";
-  background-color: rgba(255, 202, 37, 0);
-}
-.star.is-checked:after {
-  background-color: #ffca25;
-}
-
-.email:after {
-  content: "\f1fa";
-  background-color: rgba(145, 61, 136, 0);
-}
-.email.is-checked:after {
-  background-color: #913D88;
-}
-
-.bell:after {
-  content: "\f0f3";
-  background-color: rgba(244, 179, 80, 0);
-}
-.bell.is-checked:after {
-  background-color: #F4B350;
-}
-
-.map:after {
-  content: "\f041";
-  background-color: rgba(68,108,179, 0);
-}
-.map.is-checked:after {
-  background-color: #446CB3;
-}
-
-.wifi:after {
-  content: "\f1eb";
-  background-color: rgba(224, 130, 131, 0);
-}
-.wifi.is-checked:after {
-  background-color: #E08283;
-}
+    .unchecked{
+        font-size:500%;
+        color:red;
+    }
+    
 </style>
 
-<span class="checkbox heart "></span>
+<span>&star;</span>
+<span style="font-size:500%;color:blue;">&bigstar;</span>
 
-<div class="clear"></div>
 
 
 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>

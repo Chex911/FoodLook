@@ -46,7 +46,7 @@
                 }
                 
                 echo '</div>
-                      <div class="checkbox heart" onClick="">
+                      <div id="'.$id.'" class="checkbox heart" onClick="">
                       </div>
                       <a href="index.php?page=recipe/details&recipe='.$recipe_name.'" class="click-for-more">click for more...</a>
                       </article>';
