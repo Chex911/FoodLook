@@ -10,12 +10,12 @@ require_once 'DataAbstraction/DB.php';
 //$array = array();
 //$array2 = array();
 //
-$array=['eggs','tomato','milk','sugar','yoghurt','butter','flour','oil','rice',
-        'cheese','chips','cucumber','onion','potato'];
-
-$array2=[
-    'Tajin','Mosli','Brick','Couscous','Tunisian soup','Dwida','Kafteji'
-];
+//$array=['eggs','tomato','milk','sugar','yoghurt','butter','flour','oil','rice',
+//        'cheese','chips','cucumber','onion','potato'];
+//
+//$array2=[
+//    'Tajin','Mosli','Brick','Couscous','Tunisian soup','Dwida','Kafteji'
+//];
 
 //Tajin .potatos, .cheese, .parsley, .eggs, .salt, .corcuma.
 //Mosli .Fish or chiken, .salt, .piment, .corcuma, 
@@ -24,10 +24,10 @@ $array2=[
 //Tunisian soup pasta, chilli,garlek, meat, Parsley, concentrated tomate.
 //Dwida pasta, pimetn, chilli, salt, oil, tomato, onion, piment, garlek, meat,vegetables.
 
-$array3=[
-    'parsley','salt','courcuma','fish','piment','tuna','couscous','chicken','onion',
-    'peper','chilli','pasta','garlik','concentrated tomate',
-];
+//$array3=[
+//    'parsley','salt','courcuma','fish','piment','tuna','couscous','chicken','onion',
+//    'peper','chilli','pasta','garlik','concentrated tomate',
+//];
 //
 //$ingredients_array = array();
 //$ingredients_array = [
@@ -72,14 +72,14 @@ $array3=[
 //print_r($a = Ingredient::retriveAll());
 //echo '</pre>';
 
-$r = new Ingredient();
-
-
-
-foreach ($array3 as $result){
-    $r -> name = $result;
-    $r ->create();
-}
+//$r = new Ingredient();
+//
+//
+//
+//foreach ($array3 as $result){
+//    $r -> name = $result;
+//    $r ->create();
+//}
  
 //$db = DB::getDB();
 // $nr = 0;
@@ -199,7 +199,7 @@ foreach ($array3 as $result){
 
 
 <!--<div class="record" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
-<button id="<?php $get=8; echo $get; ?>" class="delbutton">Delete</button>
+<button id="" class="delbutton">Delete</button>
 This is some text in the div.
 <p>This is a paragraph in the div.</p>
 <p>This is another paragraph in the div.</p>
@@ -228,3 +228,150 @@ This is some text in the div.
         });
     });
  </script>  -->
+
+<!--<script src="js/favourite.js" type="text/javascript"></script>-->
+
+<style>
+.clear {
+	clear:both;
+}
+.mrgn-50 {
+	margin-top:50px}
+
+a { color:#FFF; text-decoration:none}
+a:hover { color:#09F; text-decoration:none}
+h1 {
+	margin-top:50px;
+	color:#FFF;
+	font-size:3em; 
+	text-align:center;}
+
+
+.checkbox {
+  float: left;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  -moz-border-radius: 80px;
+  -webkit-border-radius: 80px;
+  border-radius: 80px;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.25);
+  margin: 20px;
+  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5);
+}
+.checkbox:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.checkbox:hover:after {
+  color: white;
+}
+.checkbox:after {
+  line-height: 85px;
+  font-family: "FontAwesome";
+  display: block;
+  content: "";
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  font-size: 54px;
+  -moz-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+  -o-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+  -webkit-transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+  transition: all 0.15s cubic-bezier(0.5, 0, 0, 1.5), font-size 0.35s cubic-bezier(0.5, 0, 0, 3);
+}
+.checkbox.is-checked:after {
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  font-size: 44px;
+  color: white;
+}
+.checkbox.is-checked:hover:after {
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.check:after {
+  content: "\f00c";
+  background-color: rgba(165, 194, 92, 0);
+}
+.check.is-checked:after {
+  background-color: #a5c25c;
+}
+
+.heart:after {
+  content: "\f004";
+  background-color: rgba(241, 76, 56, 0);
+}
+.heart.is-checked:after {
+  background-color: #f14c38;
+}
+
+.star:after {
+  content: "\f005";
+  background-color: rgba(255, 202, 37, 0);
+}
+.star.is-checked:after {
+  background-color: #ffca25;
+}
+
+.email:after {
+  content: "\f1fa";
+  background-color: rgba(145, 61, 136, 0);
+}
+.email.is-checked:after {
+  background-color: #913D88;
+}
+
+.bell:after {
+  content: "\f0f3";
+  background-color: rgba(244, 179, 80, 0);
+}
+.bell.is-checked:after {
+  background-color: #F4B350;
+}
+
+.map:after {
+  content: "\f041";
+  background-color: rgba(68,108,179, 0);
+}
+.map.is-checked:after {
+  background-color: #446CB3;
+}
+
+.wifi:after {
+  content: "\f1eb";
+  background-color: rgba(224, 130, 131, 0);
+}
+.wifi.is-checked:after {
+  background-color: #E08283;
+}
+</style>
+
+<span class="checkbox heart "></span>
+
+<div class="clear"></div>
+
+
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+   $('.checkbox').click(function(){
+    $(this).toggleClass('is-checked');
+    }); 
+</script>

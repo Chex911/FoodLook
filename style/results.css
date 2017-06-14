@@ -12,7 +12,7 @@
     width: 60%;
     margin: 2rem auto;
     background-color: bisque;
-    overflow: hidden;
+    //overflow: hidden;
 }
 
 .result-square img{
@@ -75,3 +75,21 @@ a.click-for-more{
     transition: 0.7s;
 }
 
+.delbutton{
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    border: 1px dotted gray;
+    padding: 0.8rem;
+    background-color: #BF1616;
+    -webkit-transition: background-color #600000;
+}
+
+.delbutton:hover{
+    cursor: pointer;
+    background-color: #600000;
+    transition: 0.7s;
+}

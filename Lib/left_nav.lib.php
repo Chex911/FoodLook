@@ -15,7 +15,7 @@
     <?php 
         if(isset($_SESSION['logged']) == true){
             echo '<li class="nav-item"><a href="index.php?page=recipe/add_recipe">Add recipe</a></li>';
-            echo '<li class="nav-item"><a href="#">Favorites</a></li>';
+            echo '<li class="nav-item"><a href="index.php?page=recipe/favorites">Favorites</a></li>';
         }
     ?>
     <li class="nav-item"><a href="#">Category</a></li>

@@ -26,6 +26,7 @@
                      
                     }
                 }
+                
                 echo '<img src="'.$path.'">'
                         . ' <div class="result-description">'
                         . '<h1>'.$recipe_name.'</h1>';
@@ -45,13 +46,16 @@
                 }
                 
                 echo '</div>
-                      <a href="index.php?page=search/details&recipe='.$recipe_name.'" class="click-for-more">click for more...</a>
+                      <div class="checkbox heart" onClick="">
+                      </div>
+                      <a href="index.php?page=recipe/details&recipe='.$recipe_name.'" class="click-for-more">click for more...</a>
                       </article>';
             }
         }
     ?>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/favorites.js" type="text/javascript"></script>
 <script type="text/javascript" >
     $(function() {
         $(".delbutton").click(function() {
