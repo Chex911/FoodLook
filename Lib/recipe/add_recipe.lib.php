@@ -14,6 +14,10 @@
             <label>Name</label><br>
             <input class="recipe-name-input" type="text" name="recipe-name-user" required autofocus/>
         </div>
+        <div>
+            <label>Short description</label><br>
+            <input class="recipe-name-input" type="text" name="short-description-input" required/>
+        </div>
         <label>Description</label><br>
         <textarea name="recipe-description" form="add-recipe-form" style="width: 400px; height: 200px;"> </textarea>
         <div>

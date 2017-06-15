@@ -56,9 +56,8 @@ header a{
 }
 
 #search-area{
-    position: absolute;
-    top: 40%;
-    left: 21.83%;
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
 }
 
 #text-input{
@@ -77,13 +76,21 @@ header a{
 
 #search{
     position: relative;
+    text-align: center;  /* align the inline(-block) elements horizontally */
+    font: 0/0 a; 
     float: left;
     height: 20rem;
     width: 100%;
     background-image: url(../img/apple.jpg);
     background-size: cover;
-    margin-bottom: 5%;
-    
+    margin-bottom: 5%; 
+}
+
+#search:before{
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+    height: 100%;
 }
 
 #best{

@@ -162,39 +162,39 @@ require_once 'DataAbstraction/DB.php';
 //    echo 'Create error!';
 //}
 
-//$db = DB::getDB();
-//$query = "DELETE FROM `recipe_has_ingredient`";       
-//$res = $db -> query($query);
-//print_r($res);
-//echo '</br>';
-//$query = "DELETE FROM `recipe_has_image`";  
-//$res = $db -> query($query);
-//print_r($res);
-//echo '</br>';
-//$query = "DELETE FROM `recipe`";  
-//$res = $db -> query($query);
-//print_r($res);
-//echo '</br>';
-//$query = "DELETE FROM `image`";  
-//$res = $db -> query($query);
-//print_r($res);
-//echo '</br>';
-//$query = "ALTER TABLE `recipe_has_image` auto_increment = 1";  
-//$res = $db -> query($query);
-//print_r($res);
-//echo '</br>';
-//$query = "ALTER TABLE `recipe_has_ingredient` auto_increment = 1";  
-//$res = $db -> query($query);
-//print_r($res);
-//echo '</br>';
-//$query = "ALTER TABLE `recipe` auto_increment = 1";  
-//$res = $db -> query($query);
-//print_r($res);
-//echo '</br>';
-//$query = "ALTER TABLE `image` auto_increment = 1";  
-//$res = $db -> query($query);
-//print_r($res);
-//echo '</br>';
+$db = DB::getDB();
+$query = "DELETE FROM `recipe_has_ingredient`";       
+$res = $db -> query($query);
+print_r($res);
+echo '</br>';
+$query = "DELETE FROM `recipe_has_image`";  
+$res = $db -> query($query);
+print_r($res);
+echo '</br>';
+$query = "DELETE FROM `recipe`";  
+$res = $db -> query($query);
+print_r($res);
+echo '</br>';
+$query = "DELETE FROM `image`";  
+$res = $db -> query($query);
+print_r($res);
+echo '</br>';
+$query = "ALTER TABLE `recipe_has_image` auto_increment = 1";  
+$res = $db -> query($query);
+print_r($res);
+echo '</br>';
+$query = "ALTER TABLE `recipe_has_ingredient` auto_increment = 1";  
+$res = $db -> query($query);
+print_r($res);
+echo '</br>';
+$query = "ALTER TABLE `recipe` auto_increment = 1";  
+$res = $db -> query($query);
+print_r($res);
+echo '</br>';
+$query = "ALTER TABLE `image` auto_increment = 1";  
+$res = $db -> query($query);
+print_r($res);
+echo '</br>';
 ?>
 
 
@@ -231,23 +231,139 @@ This is some text in the div.
 
 <!--<script src="js/favourite.js" type="text/javascript"></script>-->
 
-<style>
-    .unchecked{
-        font-size:500%;
-        color:red;
-    }
-    
-</style>
+<!--<style>
+ 
+ .rate_widget {
+    border:     1px solid #CCC;
+    overflow:   visible;
+    padding:    10px;
+    position:   relative;
+    width:      180px;
+    height:     32px;
+}
+.ratings_stars {
+    background: url('img/star_empty.png') no-repeat;
+    float:      left;
+    height:     28px;
+    padding:    2px;
+    width:      32px;
+}
+.ratings_vote {
+    background: url('img/star_full.png') no-repeat;
+}
+.ratings_over {
+    background: url('img/star_highlight.png') no-repeat;
+}   
+/*Total votes box, center widgets*/
+.total_votes {
+    background: #eaeaea;
+    top: 58px;
+    left: 0;
+    padding: 5px;
+    position:   absolute;  
+}
 
-<span>&star;</span>
-<span style="font-size:500%;color:blue;">&bigstar;</span>
+.movie_choice {
+    font: 10px verdana, sans-serif;
+    margin: 0 auto 40px auto;
+    width: 180px;
+}
+/**/
+
+</style>
+------------------HTML START------------------
+
+<div class='movie_choice'>
+    Rate: Raiders of the Lost Ark
+    <div id="r1" class="rate_widget">
+        <div class="star_1 ratings_stars"></div>
+        <div class="star_2 ratings_stars"></div>
+        <div class="star_3 ratings_stars"></div>
+        <div class="star_4 ratings_stars"></div>
+        <div class="star_5 ratings_stars"></div>
+        <div class="total_votes">vote data</div>
+    </div>
+</div>
+ 
+<div class='movie_choice'>
+    Rate: The Hunt for Red October
+    <div id="r2" class="rate_widget">
+        <div class="star_1 ratings_stars"></div>
+        <div class="star_2 ratings_stars"></div>
+        <div class="star_3 ratings_stars"></div>
+        <div class="star_4 ratings_stars"></div>
+        <div class="star_5 ratings_stars"></div>
+        <div class="total_votes">vote data</div>
+    </div>
+</div>
+
+------------------HTML END--------------------
 
 
 
 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
-   $('.checkbox').click(function(){
-    $(this).toggleClass('is-checked');
-    }); 
-</script>
+ $('.ratings_stars').hover(
+    // Handles the mouseover
+    function() {
+        $(this).prevAll().andSelf().addClass('ratings_over');
+        $(this).nextAll().removeClass('ratings_vote'); 
+    },
+    // Handles the mouseout
+    function() {
+        $(this).prevAll().andSelf().removeClass('ratings_over');
+        set_votes($(this).parent());
+    }
+);
+
+/**********Get the information from the server*********/
+$('.rate_widget').each(function(i) {
+    var widget = this;
+    var out_data = {
+        widget_id : $(widget).attr('id'),
+        fetch: 1
+    };
+    $.post(
+        'ratings.php',
+        out_data,
+        function(INFO) {
+            $(widget).data( 'fsr', INFO );
+            //$('#one_of_your_widgets).data('fsr').widget_id;
+            set_votes(widget);
+        },
+        'json'
+    );
+});
+
+
+ function set_votes(widget) {
+    var avg = $(widget).data('fsr').whole_avg;
+    var votes = $(widget).data('fsr').number_votes;
+    var exact = $(widget).data('fsr').dec_avg;
+
+    $(widget).find('.star_' + avg).prevAll().andSelf().addClass('ratings_vote');
+    $(widget).find('.star_' + avg).nextAll().removeClass('ratings_vote'); 
+    $(widget).find('.total_votes').text( votes + ' votes recorded (' + exact + ' rating)' );
+}
+
+/***Click handler***/
+$('.ratings_stars').bind('click', function() {
+    var star = this;
+    var widget = $(this).parent();
+
+    var clicked_data = { //outgoing data
+        clicked_on : $(star).attr('class'), //it should tell what vote is being given
+        widget_id : widget.attr('id')
+    };
+    $.post(
+        'ratings.php',
+        clicked_data,
+        function(INFO) {
+            widget.data( 'fsr', INFO );
+            set_votes(widget);
+        },
+        'json'
+    ); 
+}); 
+</script>-->
