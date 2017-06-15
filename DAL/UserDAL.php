@@ -34,7 +34,7 @@ class UserDAL{
         
         
         $res = $db->query($query);
-        $res -> setFetchMode(PDO::FETCH_CLASS,"user");
+        $res -> setFetchMode(PDO::FETCH_CLASS,"User");
         return($res);
     }
     
@@ -71,7 +71,7 @@ class UserDAL{
         ];
         
         $res = $db->query($query, $params);
-        $res -> setFetchMode(PDO::FETCH_CLASS,"user");
+        $res -> setFetchMode(PDO::FETCH_CLASS,"User");
         $row = $res -> fetch();
         
         if($row){
@@ -93,7 +93,7 @@ class UserDAL{
         ];
         
         $res = $db->query($query, $params);
-        $res -> setFetchMode(PDO::FETCH_CLASS,"user");
+        $res -> setFetchMode(PDO::FETCH_CLASS,"User");
         $row = $res -> fetch();
         $return = false;
         
@@ -102,6 +102,38 @@ class UserDAL{
         }
         
         $res -> closeCursor();
+        return($return);
+    }
+    public static function getFavoriteArray($e)
+    {
+        $db=DB::getDB();
+        $query="SELECT * FROM recipe WHERE id IN (SELECT recipe_id FROM user_has_recipe WHERE user_id= :user_id)";
+        
+        $params =
+        [
+            ':user_id'=>$e->id
+        ];
+        
+        $res = $db->query($query, $params);
+        $res -> setFetchMode(PDO::FETCH_CLASS,"Recipe");
+        
+         $array = array();
+        
+        while($row = $res -> fetch()){
+            $array[] = $row;
+        }
+        $res -> closeCursor();
+        
+        if(isset($array)){
+            return($array);
+        } else {
+            $return = FALSE;
+        }
+        if($row){
+            $e -> user_id = $row -> user_id;
+        }
+        
+     
         return($return);
     }
 }

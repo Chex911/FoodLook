@@ -33,8 +33,12 @@ class RecipeController {
             return($error);
         }
         else if(isset($_POST['favorite_id'], $_POST['user_login'])){
-            
-            static::add_to_favorite();
+            if($_POST['check_flag']=='checkbox heart is-checked'){
+                static::add_to_favorite();
+            }
+            else{
+                static::delete_from_favorite();
+            }    
             
         }
         
@@ -61,6 +65,15 @@ class RecipeController {
         $u -> name = $_POST['user_login'];
         $a = new User_has_recipe();
         $a->create_from_session($r,$u);
+    }
+     private static function delete_from_favorite(){
+        $u = new User();
+        $u -> login = $_POST['user_login'];
+        $u=$u->retriveByLogin();
+        $a = new User_has_recipe();
+        $a->recipe_id=$_POST['favorite_id'];
+        $a->user_id=$u->id;
+        $a->delete();
     }
    
     

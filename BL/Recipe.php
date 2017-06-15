@@ -101,4 +101,5 @@ class Recipe{
     public function addImage($image){
         return(Image::addImage($this,$image));
     }
+    
 }

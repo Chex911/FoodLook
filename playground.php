@@ -230,7 +230,7 @@ This is some text in the div.
  </script>  -->
 
 <!--<script src="js/favourite.js" type="text/javascript"></script>-->
-
+<!--
 <style>
     .unchecked{
         font-size:500%;
@@ -250,4 +250,4 @@ This is some text in the div.
    $('.checkbox').click(function(){
     $(this).toggleClass('is-checked');
     }); 
-</script>
+</script>-->

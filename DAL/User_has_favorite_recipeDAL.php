@@ -83,14 +83,25 @@ class User_has_favorite_recipeDAL{
         
         $res = $db->query($query, $params);
         $res -> setFetchMode(PDO::FETCH_CLASS,"user_has_recipe");
-        $row = $res -> fetch();
         
+         $array = array();
+        
+        while($row = $res -> fetch()){
+            $array[] = $row;
+        }
+        $res -> closeCursor();
+        
+        if(isset($array)){
+            return($array);
+        } else {
+            $return = FALSE;
+        }
         if($row){
             $e -> user_id = $row -> user_id;
         }
         
-        $res -> closeCursor();
-        return($row);
+     
+        return($return);
     }
     
     public static function retriveByRecipe($e){

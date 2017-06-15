@@ -4,7 +4,7 @@
 
     
 class User_has_recipe{
-    public $tag_id;
+    public $user_id;
     public $recipe_id;
     
     public function create() {

@@ -4,6 +4,7 @@
 
     
 class User{
+    public $id;
     public $login;
     public $password;
     public $email;
@@ -42,5 +43,8 @@ class User{
     }
     public function contains($id) {
         return(User_has_favorite_recipeDAL::contains($this,$id));        
+    }
+    public function getFavoriteArray(){
+        return(UserDAL::getFavoriteArray($this));
     }
 }

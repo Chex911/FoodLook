@@ -11,6 +11,17 @@ class SearchController{
             $r -> name = $name;
             $result = $r ->retriveByName();
             return($result);
+        }if(isset($_GET['page']) && $_GET['page'] == "recipe/favorites"){
+            $u=new User();
+            $u->login=$_SESSION['login'];
+            $user_id=$u->retriveByLogin();
+            $u->id=$user_id->id;
+            $array=$u->getFavoriteArray();
+//            $f= new User_has_recipe();
+//            $f->user_id=$u->id;
+//            $array=$f->retriveByUser();
+            
+            return($array);
         }else{
             echo 'We have a problem :(';
         }
