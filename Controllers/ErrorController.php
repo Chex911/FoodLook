@@ -89,6 +89,10 @@ class ErrorController {
             case 16:
             echo '<span class="add-recipe-validation-true">*Database::The image could not be inserted</span>';
             break;
+        
+            case 17:
+            echo '<span class="add-recipe-validation-false">*Description limit is 1000 characters</span>';
+            break;
         }
     }
 }

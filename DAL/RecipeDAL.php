@@ -9,11 +9,12 @@ class RecipeDAL{
     
     public static function create($e){
         $db = DB::getDB();
-        $query = "INSERT INTO recipe (name,description) VALUES(:name, :description)";
+        $query = "INSERT INTO recipe (name,description,short_description) VALUES(:name, :short_description, :description)";
         
         $params =
         [
             ':name'=>$e->name,
+            ':short_description'=>$e->short_description,
             ':description'=>$e->description
         ];
         
@@ -84,29 +85,48 @@ class RecipeDAL{
         }
         
         return $return;
-
     }
     
-    public static function getID($e){
+    public static function getObject($e){
         $db = DB::getDB();
         $query = "SELECT * FROM recipe WHERE name = :name";
-        
+
         $params =
                 [
                   ':name' => $e -> name, 
                 ];
-        
+
         $res = $db -> query($query,$params);
         $res -> setFetchMode(PDO::FETCH_CLASS,"recipe");
         $row = $res -> fetch();
-        
+
         if(isset($row)){
-            $id = $row -> id;
-            return($id);
+            return($row);
         }
         return(FALSE);   
     }
 
+    public static function getID($e){
+        $db = DB::getDB();
+        $query = "SELECT * FROM recipe WHERE name = :name";
+
+        $params =
+                [
+                  ':name' => $e -> name, 
+                ];
+
+        $res = $db -> query($query,$params);
+        $res -> setFetchMode(PDO::FETCH_CLASS,"Recipe");
+        $row = $res -> fetch();
+
+        if(isset($row)){
+            if($row instanceof Recipe){
+               $id = $row -> id;
+               return($id);  
+            }
+        }
+        return(FALSE);   
+    }
     
     public static function addIngredients($r,$ingredients_array){
         $error_flag = 1;

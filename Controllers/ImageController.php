@@ -44,7 +44,7 @@ class ImageController {
 //            $uploadOk = 0;
 //        }
         // Check file size
-        if ($_FILES["recipe-image-user"]["size"] > 500000) {
+        if ($_FILES["recipe-image-user"]["size"] > 3000000) {
             //echo "Sorry, your file is too large.";
             $error = 8;
             $uploadOk = 0;

@@ -20,6 +20,10 @@ class RecipeController {
                 $error = 4;
                 return($error);
             }
+            if(strlen($_POST['recipe-description']) > 1000){
+                $error = 17;
+                return($error);
+            }
             if(isset($_FILES['recipe-image-user'])){
                 $error = ImageController::upload();
             }else{
@@ -47,6 +51,7 @@ class RecipeController {
     public static function addRecipe($image){
         $r = new Recipe();
         $r -> name = $_POST['recipe-name-user'];
+        $r -> short_description = $_POST['short-description-input'];
         $r -> description = $_POST['recipe-description'];
         $r -> image = $image;
         $result = $r ->create(static::splitIngredients($_POST['recipe-ingredients-user']));

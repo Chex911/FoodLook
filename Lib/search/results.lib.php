@@ -18,7 +18,7 @@
                 $description_len = strlen($description);
                 $ingredients = $result -> getIngredients();
                 $image = $result -> getIMG();
-                $path = $image -> path;
+                $path = isset($image -> path) ? $image->path : "img/recipe/recipe_img/default.jpg";
                 echo '<article class="result-square">';
                 if(isset($_SESSION['login'])){
                     if($_SESSION['login'] == 'admin'){
@@ -36,8 +36,10 @@
                 
                 $limit = 6;
                 $count = 0;
+                $buffor = "";
                 foreach ($ingredients as $ingredient){
-                    echo '<a href="#"><span>'.$name = isset($ingredient) ? $ingredient.", " : '' .'</span></a>';
+//                    echo '<a href="#"><span>'.$name = isset($ingredient) ? $ingredient.", " : '' .'</span></a>';
+                    $buffor.=$ingredient.", ";
                     $count++;
                     if($count > $limit){
                         $count = 0;

@@ -11,6 +11,7 @@ class Recipe{
     public $description;
     public $ingredients;
     public $image;
+    public $short_description;
 
 
     public function create($ingredients_array) {
@@ -61,7 +62,11 @@ class Recipe{
         return(RecipeDAL::retriveAll());
     }
     
-    public function retriveByName() {
+    public function getObject(){
+        return(RecipeDAL::getObject($this));
+    }
+
+        public function retriveByName() {
         return(RecipeDAL::retriveByName($this));
     }   
     
