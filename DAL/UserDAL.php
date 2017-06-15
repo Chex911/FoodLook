@@ -2,6 +2,7 @@
 
 require_once dirname(__FILE__).'/../DataAbstraction/DB.php';
 
+
 class UserDAL{
     
     public static function create($e){
@@ -37,7 +38,9 @@ class UserDAL{
         return($res);
     }
     
-    public static function retriveByLogin($e){
+
+
+   public static function retriveByLogin($e){
         $db=DB::getDB();
         $query="SELECT * FROM user WHERE login = :login";
         
@@ -47,7 +50,7 @@ class UserDAL{
         ];
         
         $res = $db->query($query, $params);
-        $res -> setFetchMode(PDO::FETCH_CLASS,"user");
+        $res -> setFetchMode(PDO::FETCH_CLASS,"User");
         $row = $res -> fetch();
         
         if($row){

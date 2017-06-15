@@ -1,5 +1,6 @@
 <?php
     require_once dirname(__FILE__).'/../DAL/UserDAL.php';
+    require_once dirname(__FILE__).'/../DAL/User_has_favorite_recipeDAL.php';
 
     
 class User{
@@ -10,7 +11,7 @@ class User{
     public function create() {
         $res = FALSE;
         
-        if(!$this->retriveByLogin() && !$this->retriveByEmial()){
+        if(!$this->retriveByLogin() && !$this->retriveByEmail()){
             $res = UserDAL::create($this);
         }
         return($res);
@@ -32,11 +33,14 @@ class User{
         return(UserDAL::retriveByLogin($this));
     }   
     
-     public function retriveByEmial() {
+     public function retriveByEmail() {
         return(UserDAL::retriveByEmail($this));
     }
     
     public function retriveByLoginAndPassword(){
         return(UserDAL::retriveByLoginAndPassword($this));
+    }
+    public function contains($id) {
+        return(User_has_favorite_recipeDAL::contains($this,$id));        
     }
 }

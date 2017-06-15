@@ -1,5 +1,7 @@
 <?php
 require_once dirname(__FILE__).'/../BL/Recipe.php';
+require_once dirname(__FILE__).'/../BL/User.php';
+require_once dirname(__FILE__).'/../BL/User_has_recipe.php';
 require_once dirname(__FILE__).'/../Controllers/ImageController.php';
 
 class RecipeController {
@@ -30,7 +32,9 @@ class RecipeController {
             }
             return($error);
         }
-        else if(isset($_POST['favorite_id'], $_SESSION['login'])){
+        else if(isset($_POST['favorite_id'], $_POST['user_login'])){
+            
+            static::add_to_favorite();
             
         }
         
@@ -54,9 +58,10 @@ class RecipeController {
         $r = new Recipe();
         $r -> id = $_POST['favorite_id'];
         $u = new User();
-        $u -> name = $_SESSION['login'];
-        
-        $u -> add_favorite($r);
+        $u -> name = $_POST['user_login'];
+        $a = new User_has_recipe();
+        $a->create_from_session($r,$u);
     }
+   
     
 }
