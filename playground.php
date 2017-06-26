@@ -4,6 +4,7 @@ require_once 'BL/Recipe.php';
 require_once 'BL/Recipe_has_ingredient.php';
 require_once 'BL/Image.php';
 require_once 'BL/Recipe_has_image.php';
+require_once 'BL/Category.php';
 require_once 'DataAbstraction/DB.php';
 
 //echo 'Hello World!';
@@ -162,40 +163,40 @@ require_once 'DataAbstraction/DB.php';
 //    echo 'Create error!';
 //}
 
-$db = DB::getDB();
-$query = "DELETE FROM `recipe_has_ingredient`";       
-$res = $db -> query($query);
-print_r($res);
-echo '</br>';
-$query = "DELETE FROM `recipe_has_image`";  
-$res = $db -> query($query);
-print_r($res);
-echo '</br>';
-$query = "DELETE FROM `recipe`";  
-$res = $db -> query($query);
-print_r($res);
-echo '</br>';
-$query = "DELETE FROM `image`";  
-$res = $db -> query($query);
-print_r($res);
-echo '</br>';
-$query = "ALTER TABLE `recipe_has_image` auto_increment = 1";  
-$res = $db -> query($query);
-print_r($res);
-echo '</br>';
-$query = "ALTER TABLE `recipe_has_ingredient` auto_increment = 1";  
-$res = $db -> query($query);
-print_r($res);
-echo '</br>';
-$query = "ALTER TABLE `recipe` auto_increment = 1";  
-$res = $db -> query($query);
-print_r($res);
-echo '</br>';
-$query = "ALTER TABLE `image` auto_increment = 1";  
-$res = $db -> query($query);
-print_r($res);
-echo '</br>';
-?>
+//$db = DB::getDB();
+//$query = "DELETE FROM `recipe_has_ingredient`";       
+//$res = $db -> query($query);
+//print_r($res);
+//echo '</br>';
+//$query = "DELETE FROM `recipe_has_image`";  
+//$res = $db -> query($query);
+//print_r($res);
+//echo '</br>';
+//$query = "DELETE FROM `recipe`";  
+//$res = $db -> query($query);
+//print_r($res);
+//echo '</br>';
+//$query = "DELETE FROM `image`";  
+//$res = $db -> query($query);
+//print_r($res);
+//echo '</br>';
+//$query = "ALTER TABLE `recipe_has_image` auto_increment = 1";  
+//$res = $db -> query($query);
+//print_r($res);
+//echo '</br>';
+//$query = "ALTER TABLE `recipe_has_ingredient` auto_increment = 1";  
+//$res = $db -> query($query);
+//print_r($res);
+//echo '</br>';
+//$query = "ALTER TABLE `recipe` auto_increment = 1";  
+//$res = $db -> query($query);
+//print_r($res);
+//echo '</br>';
+//$query = "ALTER TABLE `image` auto_increment = 1";  
+//$res = $db -> query($query);
+//print_r($res);
+//echo '</br>';
+//?>
 
 
 <!--<div class="record" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
@@ -367,3 +368,8 @@ $('.ratings_stars').bind('click', function() {
     ); 
 }); 
 </script>-->
+<?php
+ 
+Category::retriveAll();
+
+

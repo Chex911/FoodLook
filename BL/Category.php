@@ -5,30 +5,30 @@
     
 class Category{
     public $name;
+    public $id;
     
   public function create() {
         $res = FALSE;
         
         if(!$this->retriveByName()){
-            $res = RecipeDAL::create($this);
+            $res = CategoryDAL::create($this);
         }
         return($res);
     }
     
     public function delete() {
-        return(RecipeDAL::delete($this));
+        return(CategoryDAL::delete($this));
     }
     
     public function update() {
-        return(RecipeDAL::update($this));
+        return(CategoryDAL::update($this));
     }
     
     public static  function retriveAll(){
-        return(RecipeDAL::retriveAll());
+        return(CategoryDAL::retriveAll());
     }
     
     public function retriveByName() {
-        return(RecipeDAL::retriveByName($this));
+        return(CategoryDAL::retriveByName($this));
     }   
-    
 }

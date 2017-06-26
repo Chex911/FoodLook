@@ -49,8 +49,22 @@ class CategoryDAL{
         
         
         $res = $db->query($query);
-        $res -> setFetchMode(PDO::FETCH_CLASS,"category");
-        return($res);
+        $res -> setFetchMode(PDO::FETCH_CLASS,"Category");
+        
+        $array = array();
+        while($row = $res -> fetch()){
+            if($row != NULL){
+                $array[] = $row;
+            }
+        }
+        
+        $res -> closeCursor();
+
+        if(isset($array[0])){
+            return($array);
+        }else{
+            return(FALSE);
+        }
     }
     
     public static function retriveByName($e){
@@ -73,6 +87,5 @@ class CategoryDAL{
         $res -> closeCursor();
         return($row);
     }
-    
-   
+
 }

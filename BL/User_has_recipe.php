@@ -1,4 +1,3 @@
-
 <?php
     require_once dirname(__FILE__).'/../DAL/User_has_favorite_recipeDAL.php';
 

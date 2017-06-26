@@ -46,7 +46,7 @@
                         break;
                     }
                 }
-                
+                echo '<span>'.$buffor.'</span>';
                 echo '</div>';
                 
                 
@@ -61,9 +61,10 @@
                     if($temp==TRUE){
                         echo '<div id="'.$id.'%'.$_SESSION['login'].'" class="checkbox heart is-checked" >';
                     }
+                    echo '</div>';
                 }
         
-                echo '      </div>
+                echo '
                       <a href="index.php?page=recipe/details&recipe='.$recipe_name.'" class="click-for-more">click for more...</a>
                       </article>';
             }
