@@ -16,6 +16,8 @@
 * 14 - Database::Image_Error
 * 15 - Database::Recipe_Error
 * 16 - Database::The image could not be inserted
+* 17 - Description
+* 18 - Category error
 */
 
 /**
@@ -92,6 +94,10 @@ class ErrorController {
         
             case 17:
             echo '<span class="add-recipe-validation-false">*Description limit is 1000 characters</span>';
+            break;
+        
+            case 18:
+            echo '<span class="add-recipe-validation-false">*Category error</span>';
             break;
         }
     }

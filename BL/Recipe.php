@@ -3,6 +3,7 @@
     require_once dirname(__FILE__).'/Ingredient.php';
     require_once dirname(__FILE__).'/Image.php';
     require_once dirname(__FILE__).'/Recipe_has_image.php';
+    require_once dirname(__FILE__).'/Category_has_recipe.php';
 
     
 class Recipe{
@@ -34,6 +35,14 @@ class Recipe{
                            $res = self::addIngredients($ingredients_array); 
                         }else{
                             return(16);
+                        }
+                        if(isset($_POST['category'])){
+                            $c_h_r = new Category_has_recipe();
+                            $c_h_r -> category_id = $_POST['category'];
+                            $c_h_r -> recipe_id = $this->id;
+                            $c_h_r ->create();
+                        }else{
+                            return(18);
                         }
                     }else{
                         return(15);
