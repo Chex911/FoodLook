@@ -35,10 +35,10 @@ class StyleController {
                     echo '<link href="style/cockpit.css" rel="stylesheet" type="text/css"/>';
                     break;
                 
-               case 'recipe/favorites':
-                    echo '<link href="style/results.css" rel="stylesheet" type="text/css"/>';
-                    echo '<link href="style/favorite.css" rel="stylesheet" type="text/css"/>';
-                    break; 
+//               case 'recipe/favorites':
+//                    echo '<link href="style/results.css" rel="stylesheet" type="text/css"/>';
+//                    echo '<link href="style/favorite.css" rel="stylesheet" type="text/css"/>';
+//                    break; 
                 
                 case 'recipe/add_recipe':
                     echo '<link href="style/recipe_form.css" rel="stylesheet" type="text/css"/>';

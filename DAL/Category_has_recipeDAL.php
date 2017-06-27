@@ -60,7 +60,6 @@ class Category_has_recipeDAL{
     public static function retriveByRecipe($e){
         $db=DB::getDB();
         $query="SELECT * FROM category_has_recipe WHERE recipe_id = :recipe_id";
-        
         $params =
         [
             ':recipe_id'=>$e->recipe_id
@@ -77,6 +76,28 @@ class Category_has_recipeDAL{
         $res -> closeCursor();
         return($row);
     }
+    public static function getCategory($e){
+        $db=DB::getDB();
+        $query="SELECT name FROM category cat, category_has_recipe cht
+            where cat.id=cht.category_id
+            and cht.recipe_id=:recipe_id";
+        $params =
+        [
+            ':recipe_id'=>$e
+        ];
+        
+        $res = $db->query($query, $params);
+        $res -> setFetchMode(PDO::FETCH_CLASS,"Category");
+        $row = $res -> fetch();
+        
+        $res -> closeCursor();
+        if($row){
+            return($row[0]);
+        }else{
+            return(FALSE);
+        }
+    }
+    
     
      public static function retriveByCategory($e){
         $db=DB::getDB();

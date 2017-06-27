@@ -91,7 +91,7 @@ class ErrorController {
             break;
         
             case 17:
-            echo '<span class="add-recipe-validation-false">*Description limit is 1000 characters</span>';
+            echo '<span class="add-recipe-validation-false">*Description max. 1000 characters.Short description max. 100.</span>';
             break;
         }
     }

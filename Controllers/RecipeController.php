@@ -16,14 +16,15 @@ class RecipeController {
                 $error = 2;
                 return($error);
             }
-            if($_POST['recipe-description'] == " "){
+            if($_POST['recipe-description'] == " " ||$_POST['short-description-input'] == " "){
                 $error = 4;
                 return($error);
             }
-            if(strlen($_POST['recipe-description']) > 1000){
+            if(strlen($_POST['recipe-description']) > 1000|| strlen($_POST['short-description-input']) > 100){
                 $error = 17;
                 return($error);
             }
+            
             if(isset($_FILES['recipe-image-user'])){
                 $error = ImageController::upload();
             }else{
@@ -48,13 +49,16 @@ class RecipeController {
         
     }
     
-    public static function addRecipe($image){
+    public static function addRecipe($image){      
         $r = new Recipe();
         $r -> name = $_POST['recipe-name-user'];
         $r -> short_description = $_POST['short-description-input'];
         $r -> description = $_POST['recipe-description'];
         $r -> image = $image;
         $result = $r ->create(static::splitIngredients($_POST['recipe-ingredients-user']));
+//        $c=new Category_has_recipe();
+//        $c -> category_id=$_POST[''];
+
         return($result);
     }
     

@@ -13,11 +13,12 @@
 
             foreach ($search_array as $result){
                 $recipe_name = $result -> name;
-                $description = $result -> description;
+                $short_description = $result -> short_description;
                 $id = $result -> getID();
-                $description_len = strlen($description);
+                $short_description_len = strlen($short_description);
                 $ingredients = $result -> getIngredients();
                 $image = $result -> getIMG();
+                $category= $result->getCategory();
                 $path = isset($image -> path) ? $image->path : "img/recipe/recipe_img/default.jpg";
                 echo '<article class="result-square">';
                 if(isset($_SESSION['login'])){
@@ -30,8 +31,10 @@
                 echo '<img src="'.$path.'">'
                         . ' <div class="result-description">'
                         . '<h1>'.$recipe_name.'</h1>';
+                echo '<span class="result-category">Category:'.$category.'</span>';
 
-                echo '<p>'.$description = $description_len > 30 ? substr($description, 0, 30) : $description.'</p>
+                echo '<p>'.$short_description = $short_description_len > 100 ? substr($short_description, 0, 110).'...' : $short_description;
+                echo '</p>
                 <h2>Ingredients:</h2>';
                 
                 $limit = 6;
