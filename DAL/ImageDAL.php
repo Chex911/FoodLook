@@ -63,6 +63,31 @@ class ImageDAL {
     public function update(){
         
     }
+    public static function rand_image($cat)
+    {
+        $db = DB::getDB();
+        $query = "SELECT im.path from image im 
+                INNER JOIN recipe_has_image rhi on im.id=rhi.image_id 
+                INNER JOIN category_has_recipe chr ON rhi.recipe_id=chr.recipe_id 
+                AND chr.category_id=:cat_id ORDER BY rand() LIMIT 4;";
+        
+        $params =
+                [
+                  ':cat_id' => $cat -> id  
+                ];
+
+        $res = $db->query($query, $params);
+        $res -> setFetchMode(PDO::FETCH_ASSOC);
+
+        $array = array();
+        
+        while($row = $res -> fetch()){
+            $array[] = $row['path'];
+        }
+        
+        $res -> closeCursor();
+        return $array;
+    }
     
     public function retriveAll(){
         $db=DB::getDB();

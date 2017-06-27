@@ -36,6 +36,10 @@ class Image {
     public function update(){
         
     }
+    public static function rand_image($cat)
+    {
+        return(ImageDAL::rand_image($cat));
+    }
     
     public function retriveAll(){
         

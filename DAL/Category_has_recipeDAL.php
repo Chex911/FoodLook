@@ -91,7 +91,7 @@ class Category_has_recipeDAL{
         
         $res -> closeCursor();
         if($row){
-            return($row[0]);
+            return($row);
         }else{
             return(FALSE);
         }

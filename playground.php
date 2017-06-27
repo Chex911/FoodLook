@@ -369,7 +369,8 @@ $('.ratings_stars').bind('click', function() {
 }); 
 </script>-->
 <?php
- 
-Category::retriveAll();
+ $cat= new Category();
+ $cat->id=3;
+ImageDAL::rand_image($cat);
 
 

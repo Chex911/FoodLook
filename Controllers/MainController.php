@@ -5,6 +5,7 @@ require_once dirname(__FILE__).'/StyleController.php';
 require_once dirname(__FILE__).'/AdminController.php';
 require_once dirname(__FILE__).'/RecipeController.php';
 require_once dirname(__FILE__).'/ImageController.php';
+require_once dirname(__FILE__).'/CategoryController.php';
 
 /*
  * Recipe return:
@@ -29,6 +30,10 @@ class MainController {
     
     public static function find_recipe(){
         return(SearchController::find_recipe());
+    }
+    public static function retrive_categories()
+    {
+        return(CategoryController::retrive_category());
     }
     
     public static function load_style(){

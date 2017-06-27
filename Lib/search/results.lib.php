@@ -31,7 +31,7 @@
                 echo '<img src="'.$path.'">'
                         . ' <div class="result-description">'
                         . '<h1>'.$recipe_name.'</h1>';
-                echo '<span class="result-category">Category:'.$category.'</span>';
+                echo '<span class="result-category">Category:'.$category->name.'</span>';
 
                 echo '<p>'.$short_description = $short_description_len > 100 ? substr($short_description, 0, 110).'...' : $short_description;
                 echo '</p>

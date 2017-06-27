@@ -9,12 +9,9 @@ class Category_has_recipe{
 
 
     public function create() {
-        $res = FALSE;
         
-        if(!$this->retriveByRecipe() && !$this->retriveByCategory()){
-            $res = Category_has_recipeDAL::create($this);
-        }
-        return($res);
+        
+        return (Category_has_recipeDAL::create($this));
     }
     
     public function delete() {
