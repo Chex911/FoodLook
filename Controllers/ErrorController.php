@@ -99,6 +99,10 @@ class ErrorController {
             case 18:
             echo '<span class="add-recipe-validation-false">*Category error</span>';
             break;
+        
+            case 18:
+            echo '<span class="add-recipe-validation-false">*Category error</span>';
+            break;
         }
     }
 }
