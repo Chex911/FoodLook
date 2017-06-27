@@ -3,7 +3,6 @@
     require_once dirname(__FILE__).'/Ingredient.php';
     require_once dirname(__FILE__).'/Image.php';
     require_once dirname(__FILE__).'/Recipe_has_image.php';
-    require_once dirname(__FILE__).'/../DAL/Category_has_recipeDAL.php';
     require_once dirname(__FILE__).'/Category_has_recipe.php';
 
     
