@@ -20,12 +20,11 @@ class Category_has_recipeDAL{
     
     public static function delete($e){
         $db= DB::getDB();
-        $query = "DELETE FROM category_has_recipe WHERE recipe_id=:recipe_id AND category_id=:category_id ";
+        $query = "DELETE FROM category_has_recipe WHERE recipe_id=:recipe_id";
         
         $params =
         [
-            ':recipe_id'=>$e->recipe_id,
-            ':category_id'=>$e->category_id
+            ':recipe_id'=>$e->recipe_id
         ];
         
         $res = $db -> query($query, $params);
