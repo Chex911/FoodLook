@@ -63,7 +63,7 @@ class RecipeController {
     }
     
     private static function splitIngredients($input){
-        $array = explode(" ", $input);
+        $array = explode(",", $input);
         return($array);
     }
     
