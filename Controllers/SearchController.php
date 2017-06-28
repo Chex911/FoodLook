@@ -1,5 +1,5 @@
 <?php
-
+require_once dirname(__FILE__).'/../BL/Category.php';
 require_once dirname(__FILE__).'/../BL/Recipe.php';
 
 class SearchController{
@@ -17,11 +17,12 @@ class SearchController{
             $user_id=$u->retriveByLogin();
             $u->id=$user_id->id;
             $array=$u->getFavoriteArray();
-//            $f= new User_has_recipe();
-//            $f->user_id=$u->id;
-//            $array=$f->retriveByUser();
             
             return($array);
+        }if(isset($_GET['page']) && isset($_GET['category'])){
+           $c = new Category();
+           $c -> id = $_GET['category'];
+           return($c ->getRecipeArray());
         }else{
             echo 'We have a problem :(';
         }

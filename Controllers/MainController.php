@@ -6,6 +6,7 @@ require_once dirname(__FILE__).'/AdminController.php';
 require_once dirname(__FILE__).'/RecipeController.php';
 require_once dirname(__FILE__).'/ImageController.php';
 require_once dirname(__FILE__).'/CategoryController.php';
+require_once dirname(__FILE__).'/RateController.php';
 
 /*
  * Recipe return:
@@ -50,5 +51,9 @@ class MainController {
     
     public static function image_process(){
         return(ImageController::process());
+    }
+    
+    public static function getTopThree(){
+        return(RateController::getTopRecipes());
     }
 }

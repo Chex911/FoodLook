@@ -26,7 +26,7 @@ and open the template in the editor.
 .caption{
     position: absolute;
     text-decoration: none;
-    color:inherit;
+    color: inherit;
     height: 10rem;
     width: 100%;
     display: block;
@@ -34,8 +34,16 @@ and open the template in the editor.
     z-index: 1;
     font-size: 6rem;
     letter-spacing: 3px;
-
+    -webkit-transition: bacground-color;
+    text-shadow: 2px 2px red;
 }
+
+.caption:hover{
+    background-color: rgba(255,255,255,0.5);
+    border-bottom: 3px solid red;
+    transition: 0.6s;
+}
+
 a.result_anchor{
     text-decoration: none;
     color: inherit;
@@ -46,5 +54,5 @@ a.result_anchor{
     float: left;
     width: 25%;
     height: 100%;
-    opacity: 0.7;
+    opacity: 0.85;
 }

@@ -29,6 +29,7 @@ class StyleController {
                 
                 case 'recipe/details':
                     echo '<link href="style/details.css" rel="stylesheet" type="text/css"/>';
+                    echo '<link href="style/favorite.css" rel="stylesheet" type="text/css"/>';
                     break;
                 
                 case 'cockpit':

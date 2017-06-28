@@ -3,14 +3,22 @@
     require_once dirname(__FILE__).'/../../Lib/head.lib.php';
     require_once dirname(__FILE__).'/../../Lib/left_nav.lib.php';
     require_once dirname(__FILE__).'/../../Lib/search.lib.php'; 
+
+    if(isset($_GET['page']) && !isset($_GET['category'])){
+        $search_array = MainController::find_recipe();
+        $size = count($search_array);
+        $product_name = isset($_POST['product-name-search']) ? htmlspecialchars($_POST['product-name-search']) : "";
+        echo '<span id="hint">'.$size.' Result(s) for "'.$product_name.'"</span>';
+    }else if(isset($_GET['page']) && isset($_GET['category'])){
+        $category_retrieve = $_GET['category'];
+        $search_array = MainController::find_recipe();
+    }
 ?>
 
 <div class="results-area">
     <?php
-        $search_array = MainController::find_recipe();
-        if(isset($search_array)){
-            $size = count($search_array);
-
+        if(isset($search_array) && $search_array != FALSE){
+            
             foreach ($search_array as $result){
                 $recipe_name = $result -> name;
                 $short_description = $result -> short_description;

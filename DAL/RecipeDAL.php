@@ -9,7 +9,7 @@ class RecipeDAL{
     
     public static function create($e){
         $db = DB::getDB();
-        $query = "INSERT INTO recipe (name,description,short_description) VALUES(:name, :short_description, :description)";
+        $query = "INSERT INTO recipe (name,description,short_description) VALUES(:name, :description,:short_description)";
         
         $params =
         [
@@ -204,6 +204,31 @@ class RecipeDAL{
             }else{
                 return(FALSE);
             }
+        }
+    }
+    
+    public static function getTopRecipes(){
+        $db = DB::getDB();
+        $query = "SELECT re.*, COUNT(uhr.user_id) ocena "
+                . "FROM user_has_recipe uhr ,recipe re where uhr.recipe_id=re.id group by re.name "
+                . "ORDER BY COUNT(uhr.user_id) DESC LIMIT 3";
+
+        $res = $db -> query($query);
+        $res -> setFetchMode(PDO::FETCH_CLASS,"Recipe");
+
+        $array = array();
+        
+        while($row = $res -> fetch()){
+            if($row != NULL){
+                $array[] = $row;
+            }
+        }
+        $res -> closeCursor();
+            
+        if(isset($array[0])){
+            return($array);
+        }else{
+            return(FALSE);
         }
     }
 }

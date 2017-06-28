@@ -25,9 +25,9 @@ class UserController {
     
     public static function createUser(){
         $u = new User();
-        $u -> login = $_POST['login'];
-        $u -> password = $_POST['password'];
-        $u -> email = $_POST['email'];
+        $u -> login = htmlspecialchars($_POST['login']);
+        $u -> password = htmlspecialchars($_POST['password']);
+        $u -> email = htmlspecialchars($_POST['email']);
         
         $u -> create();
     }

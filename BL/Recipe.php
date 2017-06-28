@@ -123,4 +123,7 @@
         return(Image::addImage($this,$image));
     }
     
+    public static function getTopRecipes(){
+        return(RecipeDAL::getTopRecipes());
+    }
 }

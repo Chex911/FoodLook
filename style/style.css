@@ -67,9 +67,8 @@ header a{
 }
 
 #submit-btn{
-    border: solid 0.5rem #bbbe3f;
+    border: solid 0.6rem #bbbe3f;
     border-radius : 0px 11px 11px 0px;
-    margin-left: -4px;
     background-color: #bbbe3f;
     letter-spacing: 0.1rem;
 }
@@ -93,27 +92,42 @@ header a{
     height: 100%;
 }
 
-#best{
+.best{
     position: relative;
     float: left;
     width: 100%;
     height: 17rem;
     background-color: white;
+    margin-top: 3rem;
     margin-bottom: 8%;
+    padding-left: 15rem;
+    padding-right: 15rem;
 }
 
-#best h2{
-    position: absolute;
-    display: inline-block;
-    left: 41%;
-    top: -12%;
-    background-color: red;
-    border: 1px solid black;
+#best-0{
+    clear: both;
+    float: left;
+}
+
+#best-1{
+    text-align: left;
     z-index: 1;
-    
+    margin-left: 21%;
 }
 
-#best span{
+#best-2{
+    float: right;
+}
+
+.best h2{
+    text-align: center;
+    font-size: 2rem;
+    background-color: red;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.best span{
     position: absolute;
     text-align: center;
     height: 2rem;
@@ -126,26 +140,23 @@ header a{
     background-color: rgba(72, 72, 72, 0.7);
 }
 
-#best .best-square{
+.best .best-square{
     position: relative;
     width: 17rem;
     height: 12rem;
     float: left;
-    margin: 2% 0% 2% 8.86%;
+    margin: 2%  2%;
+    margin-left: 0;
+    margin-right: 0;
     background-repeat: no-repeat;
     background-size: cover;
+    -webkit-transition: border-bottom;
 }
 
-#best-01{
-    background-image: url(../img/roast_chicken.png);
-}
-
-#best-02{
-    background-image: url(../img/asian_bulion.png);
-}
-
-#best-03{
-    background-image: url(../img/vegan_omlet.png);
+.best .best-square:hover{
+    opacity: 0.9;
+    border-bottom: 5px solid orange;
+    transition: 0.3s;
 }
 
 #main-recipes{
@@ -166,18 +177,6 @@ header a{
     text-align: center;
     color: white;
     font-size: 4.2rem;
-}
-
-#recipes-01{
-    background-image: url(../img/bbq-bg.png);
-}
-
-#recipes-02{
-    background-image: url(../img/vegan.png);
-}
-
-#recipes-03{
-    background-image: url(../img/healthy.png);
 }
 
 ul.retrive-ingredient-list{

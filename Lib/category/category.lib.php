@@ -6,13 +6,14 @@ $category_array = MainController::retrive_categories();
  {
     $img = Image::rand_image($result);
     $category_name = $result -> name;
+    $category_id = $result -> id;
     for($i=0;$i<=4;$i++)
     {
         if($i>count($img))
         $img[]= 'img/recipe/recipe_img/bbq.jpg';
     }
     echo   '<article class="category-list">
-            <a class="caption" href="#">'.$category_name.'</a>';
+            <a class="caption" href="index.php?page=search/results&category='.$category_id.'">'.$category_name.'</a>';
     echo    '<img class="category-img" id="img-01" src="'.$img[0].'" alt=""/>
             <img class="category-img" id="img-02" src="'.$img[1].'" alt=""/>
             <img class="category-img" id="img-03" src="'.$img[2].'" alt=""/>

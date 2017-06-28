@@ -11,6 +11,7 @@
     <script type="text/javascript" src="js/nicEdit.js"></script>
     <link href="style/nav-bar.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="style/style.css">
+ 
     <?php
         require_once dirname(__FILE__).'/../Controllers/MainController.php';
         MainController::load_style();

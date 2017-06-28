@@ -78,14 +78,49 @@ class CategoryDAL{
         
         $res = $db->query($query, $params);
         $res -> setFetchMode(PDO::FETCH_CLASS,"category");
-        $row = $res -> fetch();
+        $array = array();
         
-        if($row){
-            $e -> name = $row -> name;
+        while($row = $res -> fetch()){
+            if($row != NULL){
+                $array[] = $row;
+            }
         }
         
         $res -> closeCursor();
-        return($row);
+
+        if(isset($array[0])){
+            return($array);
+        }else{
+            return(FALSE);
+        }
+    }
+    
+    public static function getRecipeArray($e){
+        $db=DB::getDB();
+        $query="SELECT * from recipe rc , category_has_recipe chr where rc.id=chr.recipe_id AND chr.category_id=:id;";
+        
+        $params =
+        [
+            ':id'=>$e->id
+        ];
+        
+        $res = $db->query($query, $params);
+        $res -> setFetchMode(PDO::FETCH_CLASS,"Recipe");
+        $array = array();
+        
+        while($row = $res -> fetch()){
+            if($row != NULL){
+                $array[] = $row;
+            }
+        }
+        
+        $res -> closeCursor();
+
+        if(isset($array[0])){
+            return($array);
+        }else{
+            return(FALSE);
+        }
     }
 
 }

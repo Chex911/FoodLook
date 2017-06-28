@@ -1,5 +1,15 @@
 #search{
     height: 5rem;
+    margin-bottom: 2%;
+}
+
+span#hint{
+   clear: both;
+   display: block;
+   font-size: 2rem;
+   text-align: center;
+   margin-bottom: 5rem;
+   letter-spacing: 2px;
 }
 
 .results-area{

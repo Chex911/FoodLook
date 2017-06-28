@@ -1,4 +1,3 @@
-
 <?php
     require_once dirname(__FILE__).'/../DAL/CategoryDAL.php';
 
@@ -30,5 +29,9 @@ class Category{
     
     public function retriveByName() {
         return(CategoryDAL::retriveByName($this));
-    }   
+    }
+    
+    public function getRecipeArray(){
+        return(CategoryDAL::getRecipeArray($this));
+    }
 }
