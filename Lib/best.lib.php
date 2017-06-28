@@ -7,7 +7,7 @@ $top_array = MainController::getTopThree();
 
 <section class="best">
     <div class="best-description">
-        <h2>Best of the weekend</h2>
+        <h2>Best of the week</h2>
     </div>
     <?php
     if(count($top_array) == 3){

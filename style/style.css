@@ -95,59 +95,59 @@ header a{
 .best{
     position: relative;
     float: left;
-    width: 100%;
-    height: 17rem;
-    background-color: white;
+    width: 70%;
+    margin-left:15%;
+    height: 100%;
+    border: 1px solid black;
+    background-color: 	#F5F5DC;
     margin-top: 3rem;
-    margin-bottom: 8%;
-    padding-left: 15rem;
-    padding-right: 15rem;
-}
-
-#best-0{
-    clear: both;
-    float: left;
+    margin-bottom: 6%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    
 }
 
 #best-1{
-    text-align: left;
-    z-index: 1;
-    margin-left: 21%;
-}
-
-#best-2{
-    float: right;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .best h2{
     text-align: center;
-    font-size: 2rem;
+    font-size: 2vw;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: -2.6vw;
     background-color: red;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+/*    border-left: 1px solid black;
+    border-right: 1px solid black;*/
+    border: 1px solid black;
 }
 
 .best span{
     position: absolute;
     text-align: center;
-    height: 2rem;
+    height: 15%;
     width: 100%;
+    margin-top: -2.6vmax;
     float: bottom;
     bottom: 0;
     color: white;
-    font-size: 1.2rem;
+    font-size:1.5vw;
     letter-spacing: 0.5rem;
     background-color: rgba(72, 72, 72, 0.7);
 }
 
 .best .best-square{
     position: relative;
-    width: 17rem;
-    height: 12rem;
+    width: 30%;
+    height: 11vw;
     float: left;
-    margin: 2%  2%;
+/*    margin: 2%  0%;
     margin-left: 0;
-    margin-right: 0;
+    margin-right: 0;*/
+    margin: 0.7vw  0;
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-transition: border-bottom;
