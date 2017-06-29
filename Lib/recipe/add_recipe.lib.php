@@ -1,6 +1,3 @@
-<!--<script type="text/javascript">
-    bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-</script>-->
 <?php
     require_once dirname(__FILE__).'/../../Controllers/MainController.php';
     require_once dirname(__FILE__).'/../../BL/Category.php';

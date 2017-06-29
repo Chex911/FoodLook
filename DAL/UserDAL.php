@@ -13,7 +13,7 @@ class UserDAL{
         [
             ':login'=>$e->login,
             ':password'=>$e->password,
-            ':email'=>$e->email, 
+            ':email'=>$e->email
         ];
         
         $res = $db -> query($query, $params);
@@ -21,11 +21,32 @@ class UserDAL{
     }
     
     public static function delete($e){
+        $db = DB::getDB();
+        $query = "DELETE FROM user WHERE id=:id";
         
+        $params =
+        [
+            ':id'=>$e->id
+        ];
+        
+        $res = $db -> query($query, $params);
+        return($res);
     }
     
     public static function update($e){
+        $db = DB::getDB();
+        $query = "UPDATE user SET login=:login,password=:password,email=:email WHERE id=:id";
         
+        $params =
+        [
+            ':id'=>$e->id,
+            ':login'=>$e->login,
+            ':password'=>$e->password,
+            ':email'=>$e->email
+        ];
+        
+        $res = $db -> query($query, $params);
+        return($res);
     }
     
     public static function getID($e) {
@@ -68,7 +89,26 @@ class UserDAL{
         }
     }
     
-
+    public static function retriveByID($e){
+        $db=DB::getDB();
+        $query="SELECT * FROM user WHERE id = :id";
+        
+        $params =
+        [
+            ':id'=>$e->id
+        ];
+        
+        $res = $db->query($query, $params);
+        $res -> setFetchMode(PDO::FETCH_CLASS,"User");
+        $row = $res -> fetch();
+        
+        if($row){
+            $e -> id = $row -> id;
+        }
+        
+        $res -> closeCursor();
+        return($row);
+    }
 
    public static function retriveByLogin($e){
         $db=DB::getDB();

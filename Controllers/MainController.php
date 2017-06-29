@@ -3,6 +3,7 @@ require_once dirname(__FILE__).'/UserController.php';
 require_once dirname(__FILE__).'/SearchController.php';
 require_once dirname(__FILE__).'/StyleController.php';
 require_once dirname(__FILE__).'/AdminController.php';
+require_once dirname(__FILE__).'/CockpitController.php';
 require_once dirname(__FILE__).'/RecipeController.php';
 require_once dirname(__FILE__).'/ImageController.php';
 require_once dirname(__FILE__).'/CategoryController.php';
@@ -48,8 +49,11 @@ class MainController {
     public static function recipe_process(){
         return(RecipeController::process());
     }
-    
-    public static function image_process(){
+    public static function cockpit_check(){
+        return(CockpitController::cockpit_check());
+    }
+
+        public static function image_process(){
         return(ImageController::process());
     }
     

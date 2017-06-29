@@ -29,6 +29,9 @@ class User{
     public static  function retriveAll(){
         return(UserDAL::retriveAll());
     }
+    public   function retriveByID(){
+        return(UserDAL::retriveByID($this));
+    }
     
     public function retriveByLogin() {
         return(UserDAL::retriveByLogin($this));

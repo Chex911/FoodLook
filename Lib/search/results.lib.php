@@ -103,7 +103,8 @@
                     url : "scripts/delete_recipe.script.php",
                     data : {object_id: id, object_name: name},
                     success : function(){
-                        //document.write('success');
+                        console.log(id);
+                        console.log(name);
                     }
                 });
                 
