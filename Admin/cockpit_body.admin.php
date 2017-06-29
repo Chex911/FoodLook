@@ -1,3 +1,6 @@
+<div class="admin-square">
+    <?php require_once dirname(__FILE__).'/sections/ingredient_valid.lib.php';?>
+</div>
 <div class="admin-square" >
     <form method="post" enctype="multipart/form-data" id="choose-user-form">
     <select class="choose-user" name="user" size="5" onChange="showNext(this.value)">
@@ -48,16 +51,4 @@
                
                 
     }
-//    $.ajax({
-//                    type : "POST",
-//                    url : "Admin/sections/drawElements.php",
-//                    data : {},
-//                    success : function(obj){
-//
-//                        console.log('Success');
-//                        console.log(obj);
-//                        
-//                    }
-//                });
-               
  </script>

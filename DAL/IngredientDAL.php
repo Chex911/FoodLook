@@ -106,6 +106,28 @@ class IngredientDAL{
         
         $res -> closeCursor();
         return($row);
-    }  
+    }
+    
+    public static function retrieveNotValid(){
+        $db=DB::getDB();
+        $query="SELECT * FROM ingredient WHERE validation = 0;";
+
+        $res = $db->query($query);
+        $res -> setFetchMode(PDO::FETCH_CLASS,"Ingredient");
+        
+        $array = array();
+        
+        while($row = $res -> fetch()){
+            $array[] = $row;
+        }
+        
+        $res -> closeCursor();
+        
+        if($array){
+            return($array);
+        }else{
+            return(FALSE);
+        }
+    }
 }
 

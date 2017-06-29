@@ -76,3 +76,21 @@ textarea{
     color: white;
     outline: none;
 }
+
+#ingredient-selected-input{
+    float: left;
+    margin-right: 1.5rem;
+}
+
+.ingredient-edit-label{
+    float: left;
+    margin-right: 1rem;
+}
+
+.ingredient-validation-btn{
+
+}
+
+.ingredient-edit-slide{
+    float: left;
+}

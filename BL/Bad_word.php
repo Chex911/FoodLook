@@ -11,7 +11,7 @@ class Bad_word {
     public $word;
     public $id;
     
-    public static function create(){
+    public function create(){
         return(Bad_wordDAL::create($this));
     }
     
@@ -19,7 +19,7 @@ class Bad_word {
         
     }
     
-    public static function contain(){
-        
+    public static function contain($word){
+        return(Bad_wordDAL::contain($word));
     }
 }

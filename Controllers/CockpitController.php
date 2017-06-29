@@ -36,5 +36,19 @@
                 }
 
            }
+           
+           if(isset($_POST['recipe-name-user'])){
+               if(isset($_POST['delete-ingredient-admin'])){
+                   
+               }
+               if(isset($_POST['accept-ingredient-admin'])){
+                   
+               }
+               if(isset($_POST['edit-ingredient-admin'])){
+                   
+               }
+           }else{
+               return(24);
+           }     
        }   
     }
