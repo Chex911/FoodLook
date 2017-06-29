@@ -11,6 +11,12 @@
     <script type="text/javascript" src="js/nicEdit.js"></script>
     <link href="style/nav-bar.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="style/style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tagsinput.js"></script>  
+
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css" />
+    
  
     <?php
         require_once dirname(__FILE__).'/../Controllers/MainController.php';

@@ -12,21 +12,21 @@
     
     <form method="post" enctype="multipart/form-data" id="add-recipe-form">
         <div>
-            <label>Name</label><br>
+            <label>Name:</label><br>
             <input class="recipe-name-input" type="text" name="recipe-name-user" required autofocus/>
         </div>
         <div>
-            <label>Short description</label><br>
+            <label>Short description:</label><br>
             <input class="recipe-name-input" type="text" name="short-description-input" required/>
         </div>
-        <label>Description</label><br>
+        <label>Description:</label><br>
         <textarea name="recipe-description" form="add-recipe-form" style="width: 400px; height: 200px;"> </textarea>
-        <div>
-            <label>Ingredients</label><br>
-            <input class="ingredients-input" type="text" name="recipe-ingredients-user" required/>
+        <div><br>
+            <p><label>Ingredients:</label><br>
+                <input id="tags_1" type="text" class="tags" name="recipe-ingredients-user" value="" /></p>
         </div>
         <div>
-            <label>Category</label><br>
+            <label>Category:</label>
             <select name="category" form='add-recipe-form'>
                 <?php 
                 $array = Category::retriveAll();
@@ -36,7 +36,7 @@
                 }
                 
                 ?>
-            </select>
+            </select><br><br>
         </div>
         <label>Select image to upload:</label>
         <input type="file" name="recipe-image-user" id="fileToUpload">
@@ -51,3 +51,9 @@
       ErrorController::validation($validation);
     ?>
 </div>
+
+<script type="text/javascript">
+    $(function(){
+        $('#tags_1').tagsInput({width:'auto'});
+    });
+</script>

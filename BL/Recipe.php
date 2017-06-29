@@ -8,13 +8,14 @@
 
     
     
-    class Recipe{
+class Recipe{
     public $id;
     public $name;
     public $description;
     public $ingredients;
     public $image;
     public $short_description;
+    public $author;
 
 
     public function create($ingredients_array) {
@@ -97,7 +98,10 @@
     public function ingredientValidation($array){
         foreach ($array as $ingredient){
             if(!(Ingredient::retriveByName($ingredient))){
-                return(FALSE);
+                $i = new Ingredient();
+                $i -> name = $ingredient;
+                $i -> validation = FALSE;
+                $i -> create();
             } 
         }
         return(TRUE);

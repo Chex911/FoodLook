@@ -47,6 +47,7 @@ class StyleController {
                 
                 case 'recipe/add_recipe':
                     echo '<link href="style/recipe_form.css" rel="stylesheet" type="text/css"/>';
+                    echo '<link href="style/jquery.tagsinput.css" rel="stylesheet" type="text/css"/>';
             }
         }
     }

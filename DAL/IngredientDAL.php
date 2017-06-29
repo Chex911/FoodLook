@@ -6,11 +6,12 @@ class IngredientDAL{
     
     public static function create($e){
         $db = DB::getDB();
-        $query = "INSERT INTO ingredient (name) VALUES(:name)";
+        $query = "INSERT INTO ingredient (name,validation) VALUES(:name,:validation)";
         
         $params =
         [
             ':name'=>$e->name,
+            ':validation' => $e->validation
         ];
         
         $res = $db -> query($query, $params);

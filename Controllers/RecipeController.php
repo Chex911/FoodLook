@@ -24,7 +24,10 @@ class RecipeController {
                 $error = 17;
                 return($error);
             }
-            
+            if(!isset($_SESSION['login'])){
+                $error = 19;
+                return($error);
+            }
             if(isset($_FILES['recipe-image-user'])){
                 $error = ImageController::upload();
             }else{
@@ -55,6 +58,9 @@ class RecipeController {
         $r -> short_description = $_POST['short-description-input'];
         $r -> description = $_POST['recipe-description'];
         $r -> image = $image;
+        $u = new User();
+        $u -> login = $_SESSION['login'];
+        $r -> author = $u -> getID();
         $result = $r ->create(static::splitIngredients($_POST['recipe-ingredients-user']));
 //        $c=new Category_has_recipe();
 //        $c -> category_id=$_POST[''];
@@ -63,7 +69,7 @@ class RecipeController {
     }
     
     private static function splitIngredients($input){
-        $array = explode(" ", $input);
+        $array = explode(",", $input);
         return($array);
     }
     

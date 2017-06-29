@@ -30,9 +30,7 @@ and open the template in the editor.
 }
 
 .add-recipe-wrapp span{
-    margin-top: 1rem;
     display: inline-block;
-    
 }
 
 span.add-recipe-validation-false{

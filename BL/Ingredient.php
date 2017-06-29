@@ -4,15 +4,12 @@
     
 class Ingredient{
     public $name;
-    public $type;
+    public $validation;
 
 
     public function create() {
-        $res = FALSE;
+        $res = IngredientDAL::create($this);
         
-        if(!$this->retriveByType() && !$this->retriveByName()){
-            $res = IngredientDAL::create($this);
-        }
         return($res);
     }
     
