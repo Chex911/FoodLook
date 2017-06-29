@@ -9,13 +9,14 @@ class RecipeDAL{
     
     public static function create($e){
         $db = DB::getDB();
-        $query = "INSERT INTO recipe (name,description,short_description) VALUES(:name, :description,:short_description)";
+        $query = "INSERT INTO recipe (name,description,short_description,author) VALUES(:name, :description,:short_description,:author)";
         
         $params =
         [
             ':name'=>$e->name,
             ':short_description'=>$e->short_description,
-            ':description'=>$e->description
+            ':description'=>$e->description,
+            ':author' => $e -> author
         ];
         
         $res = $db -> query($query, $params);
@@ -153,7 +154,8 @@ class RecipeDAL{
         $db = DB::getDB();
         $query = "SELECT * FROM recipe_has_ingredient rhi
                     INNER JOIN ingredient i ON i.id=rhi.ingredient_id
-                    WHERE rhi.recipe_id= :id";
+                    WHERE rhi.recipe_id= :id
+                    AND i.validation=1";
         
         $id = static::getID($e);  
         if(isset($id)){

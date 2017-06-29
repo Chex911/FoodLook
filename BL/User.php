@@ -33,6 +33,9 @@ class User{
     public function retriveByLogin() {
         return(UserDAL::retriveByLogin($this));
     }   
+    public function getID() {
+        return(UserDAL::getID($this));
+    }
     
      public function retriveByEmail() {
         return(UserDAL::retriveByEmail($this));

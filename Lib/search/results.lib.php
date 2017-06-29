@@ -25,6 +25,7 @@
                 $id = $result -> getID();
                 $short_description_len = strlen($short_description);
                 $ingredients = $result -> getIngredients();
+                
                 $image = $result -> getIMG();
                 $category= $result->getCategory();
                 $path = isset($image -> path) ? $image->path : "img/recipe/recipe_img/default.jpg";
@@ -48,14 +49,18 @@
                 $limit = 6;
                 $count = 0;
                 $buffor = "";
-                foreach ($ingredients as $ingredient){
-//                    echo '<a href="#"><span>'.$name = isset($ingredient) ? $ingredient.", " : '' .'</span></a>';
-                    $buffor.=$ingredient.", ";
-                    $count++;
-                    if($count > $limit){
-                        $count = 0;
-                        break;
+                if($ingredients){
+                    foreach ($ingredients as $ingredient){
+    //                    echo '<a href="#"><span>'.$name = isset($ingredient) ? $ingredient.", " : '' .'</span></a>';
+                        $buffor.=$ingredient.", ";
+                        $count++;
+                        if($count > $limit){
+                            $count = 0;
+                            break;
+                        }
                     }
+                }else{
+                    $buffor .= "Recipe has no validated ingredients";
                 }
                 echo '<span>'.$buffor.'</span>';
                 echo '</div>';

@@ -18,6 +18,7 @@
 * 16 - Database::The image could not be inserted
 * 17 - Description
 * 18 - Category error
+* 19 - Author error 
 */
 
 /**
@@ -106,6 +107,10 @@ class ErrorController {
         
             case 18:
             echo '<span class="add-recipe-validation-false">*Category error</span>';
+            break;
+        
+            case 19:
+            echo '<span class="add-recipe-validation-false">*Author error</span>';
             break;
         }
     }

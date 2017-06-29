@@ -28,6 +28,26 @@ class UserDAL{
         
     }
     
+    public static function getID($e) {
+        $db=DB::getDB();
+        $query="SELECT id FROM user where login=:login";
+         $params =
+        [
+            ':login'=>$e->login
+        ];
+               
+        $res = $db->query($query,$params);
+        $res -> setFetchMode(PDO::FETCH_ASSOC);
+        $row = $res -> fetch();
+        
+        if($row){
+            return($row['id']);
+        }
+        
+        return(FALSE);
+        
+    }
+    
     public static function retriveAll(){
         $db=DB::getDB();
         $query="SELECT * FROM user";
