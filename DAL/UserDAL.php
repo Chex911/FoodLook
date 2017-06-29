@@ -35,7 +35,17 @@ class UserDAL{
         
         $res = $db->query($query);
         $res -> setFetchMode(PDO::FETCH_CLASS,"User");
-        return($res);
+        $array = array();
+        while($row = $res -> fetch()){
+            $array[] = $row;
+        }
+        $res -> closeCursor();
+        
+        if(isset($array)){
+            return($array);
+        } else {
+            return(FALSE);
+        }
     }
     
 
