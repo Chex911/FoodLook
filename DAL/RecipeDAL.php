@@ -252,6 +252,30 @@ class RecipeDAL{
             return(FALSE);
         }
     }
+    
+    public static function getAuthor($e){
+        $db = DB::getDB();
+        $query = "SELECT login FROM user WHERE id=:author_id";
+        
+        $params =
+                [
+                  ':author_id' => $e -> author  
+                ];
+
+        $res = $db -> query($query,$params);
+        $res -> setFetchMode(PDO::FETCH_NUM);
+
+
+        
+        $row = $res -> fetch();
+        $res -> closeCursor();
+        
+        if($row[0]){
+            return $row[0];
+        }else{
+            return(FALSE);
+        }
+    }
 }
    
 

@@ -35,12 +35,12 @@ and open the template in the editor.
     font-size: 6rem;
     letter-spacing: 3px;
     -webkit-transition: bacground-color;
-    text-shadow: 2px 2px red;
+    text-shadow: 2px 2px lightgoldenrodyellow;
 }
 
 .caption:hover{
     background-color: rgba(255,255,255,0.5);
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid lightgoldenrodyellow;
     transition: 0.6s;
 }
 

@@ -137,4 +137,8 @@ class Recipe{
     public static function getRandomName(){
         return(RecipeDAL::getRandomName());
     }
+    
+    public function getAuthor(){
+        return(RecipeDAL::getAuthor($this));
+    }
 }

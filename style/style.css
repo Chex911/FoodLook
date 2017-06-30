@@ -1,6 +1,13 @@
 html{
     font-family: 'Muli', sans-serif;
-    background-color: #e8e9e8;
+}
+
+.site-wrap{
+    background: url(../img/bg.jpeg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #left-nav img{
@@ -80,7 +87,7 @@ header a{
     float: left;
     height: 20rem;
     width: 100%;
-    background-image: url(../img/apple.jpg);
+    background-image: url(../img/apple.jpeg);
     background-size: cover;
     margin-bottom: 5%; 
 }
@@ -119,7 +126,7 @@ header a{
     margin-left: 35%;
     margin-right: 35%;
     margin-top: -2.6vw;
-    background-color: red;
+    background-color: lightgoldenrodyellow;
 /*    border-left: 1px solid black;
     border-right: 1px solid black;*/
     border: 1px solid black;
