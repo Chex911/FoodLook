@@ -47,7 +47,7 @@
 
                 echo '<p>'.$short_description = $short_description_len > 100 ? substr($short_description, 0, 110).'...' : $short_description;
                 echo '</p>
-                <h2>Ingredients:</h2>';
+                <h2 class="result-ingredients">Ingredients:</h2>';
                 
                 $limit = 6;
                 $count = 0;
@@ -65,7 +65,7 @@
                 }else{
                     $buffor .= "Recipe has no validated ingredients";
                 }
-                echo '<span>'.$buffor.'</span>';
+                echo '<span class="result-ingredient-li">'.$buffor.'</span>';
                 echo '</div>';
                 
                 

@@ -233,6 +233,25 @@ class RecipeDAL{
             return(FALSE);
         }
     }
+    
+    public static function getRandomName(){
+        $db = DB::getDB();
+        $query = "";
+        
+        $res = $db -> query($query);
+        $res -> setFetchMode(PDO::FETCH_NUM);
+
+
+        
+        $row = $res -> fetch();
+        $res -> closeCursor();
+        
+        if($row[1]){
+            return $row[1];
+        }else{
+            return(FALSE);
+        }
+    }
 }
    
 

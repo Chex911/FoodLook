@@ -133,4 +133,8 @@ class Recipe{
     public static function getTopRecipes(){
         return(RecipeDAL::getTopRecipes());
     }
+    
+    public static function getRandomName(){
+        return(RecipeDAL::getRandomName());
+    }
 }

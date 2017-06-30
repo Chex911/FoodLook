@@ -17,10 +17,12 @@
             echo '<li class="nav-item"><a href="index.php?page=recipe/add_recipe">Add recipe</a></li>';
             echo '<li class="nav-item"><a href="index.php?page=recipe/favorites">Favorites</a></li>';
         }
+        
+        $random_name = 'Bigos';
     ?>
     <li class="nav-item"><a href="index.php?page=category/category">Category</a></li>
     <li class="nav-item"><a href="#">Top of week</a></li>
-    <li class="nav-item"><a href="#">Random recipe</a></li>
+    <li class="nav-item"><a href="index.php?page=recipe/details&recipe=<?php echo $random_name;?>">Random recipe</a></li>
 </ul>
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
 <label for="nav-trigger"></label>
