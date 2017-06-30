@@ -13,7 +13,8 @@ require_once dirname(__FILE__).'/../../Lib/search.lib.php';
         
         echo '<h2 class="recipe-details-name">'.$r->name.'</h2>';
         echo '<img class="recipe-details-image" src="'.$image->path.'">';
-        
+        $author = $recipe -> getAuthor();
+        echo '<span class="recipe-details-author">Author: '.$author.'</span>';
         
         echo '<br>';
         echo '<h3 class="recipe-datails-caption">Short description</h3>';
@@ -35,8 +36,7 @@ require_once dirname(__FILE__).'/../../Lib/search.lib.php';
             echo '</div>';
         }
         
-        $author = $recipe -> getAuthor();
-        echo '<span class="recipe-details-author">Author: '.$author.'</span>';
+        
          
     ?>
     

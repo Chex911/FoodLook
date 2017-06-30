@@ -34,4 +34,6 @@ class Category{
     public function getRecipeArray(){
         return(CategoryDAL::getRecipeArray($this));
     }
+    
+    
 }

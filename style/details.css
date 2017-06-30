@@ -94,7 +94,9 @@ and open the template in the editor.
 }
 
 .recipe-details-author{
-    position: absolute;
+/*    position: absolute;
     bottom: 1vh;
-    left: 1vw;
+    left: 1vw;*/
+
+    padding-left: 2rem;
 }
