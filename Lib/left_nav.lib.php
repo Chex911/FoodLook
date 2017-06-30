@@ -21,7 +21,6 @@
     <li class="nav-item"><a href="index.php?page=category/category">Category</a></li>
     <li class="nav-item"><a href="#">Top of week</a></li>
     <li class="nav-item"><a href="#">Random recipe</a></li>
-    <li class="nav-item"><a href="index.php?page=guides">Guides</a></li>
 </ul>
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
 <label for="nav-trigger"></label>

@@ -35,4 +35,8 @@ class Recipe_has_ingredient{
     public function retriveByIngredient() {
         return(Recipe_has_ingredientDAL::retriveByIngredient($this));
     }
+    
+    public function delete_byIngredientID(){
+        return(Recipe_has_ingredientDAL::delete_byIngredientID($this));
+    }
 }

@@ -4,6 +4,7 @@
 
     
 class Ingredient{
+    public $id;
     public $name;
     public $validation;
 
@@ -40,18 +41,27 @@ class Ingredient{
 
     public static function getNotValid(){
         $array = static::retrieveNotValid(); //All not valid Ingredients
-        $filtered_array = array();              //filtered ingredients
-        
-        foreach ($array as $ingredient){
-            if(!Bad_word::contain($ingredient->name)){
-                $filtered_array[] = $ingredient;
-            }
-        }
-        
-        if($filtered_array){
-            return($filtered_array);
-        }else{
-            return(FALSE);
-        }
+//        $filtered_array = array();              //filtered ingredients
+//        
+//        foreach ($array as $ingredient){
+//            if(!Bad_word::contain($ingredient->name)){
+//                $filtered_array[] = $ingredient;
+//            }
+//        }
+//        
+//        if($filtered_array){
+//            return($filtered_array);
+//        }else{
+//            return(FALSE);
+//        }
+        return($array);
+    }
+    
+    public function valid(){
+        return(IngredientDAL::valid($this));
+    }
+    
+    public function setCorrect(){
+        return(IngredientDAL::setCorrect($this));
     }
 }

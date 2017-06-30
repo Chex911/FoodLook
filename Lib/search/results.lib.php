@@ -8,7 +8,7 @@
         $search_array = MainController::find_recipe();
         $size = count($search_array);
         $product_name = isset($_POST['product-name-search']) ? htmlspecialchars($_POST['product-name-search']) : "";
-        echo '<span id="hint">'.$size.' Result(s) for "'.$product_name.'"</span>';
+        echo '<span id="hint">Result(s) for "'.$product_name.'"</span>';
     }else if(isset($_GET['page']) && isset($_GET['category'])){
         $category_retrieve = $_GET['category'];
         $search_array = MainController::find_recipe();
@@ -29,6 +29,9 @@
                 $image = $result -> getIMG();
                 $category= $result->getCategory();
                 $path = isset($image -> path) ? $image->path : "img/recipe/recipe_img/default.jpg";
+                
+                if($ingredients){
+                
                 echo '<article class="result-square">';
                 if(isset($_SESSION['login'])){
                     if($_SESSION['login'] == 'admin'){
@@ -83,7 +86,9 @@
                 echo '
                       <a href="index.php?page=recipe/details&recipe='.$recipe_name.'" class="click-for-more">click for more...</a>
                       </article>';
+                }
             }
+            
         }
     ?>
 </div>

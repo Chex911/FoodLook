@@ -17,10 +17,6 @@ class StyleController {
                 case 'user/registration':
                     echo '<link href="style/log_reg.css" rel="stylesheet" type="text/css"/>';
                     break;
-
-                case 'guides':
-                    echo '<link href="style/guides.css" rel="stylesheet" type="text/css"/>';
-                    break;
                 
                 case 'search/results':
                     echo '<link href="style/results.css" rel="stylesheet" type="text/css"/>';

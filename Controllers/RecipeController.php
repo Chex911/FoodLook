@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__FILE__).'/../BL/Recipe.php';
 require_once dirname(__FILE__).'/../BL/User.php';
+require_once dirname(__FILE__).'/../BL/Bad_word.php';
 require_once dirname(__FILE__).'/../BL/User_has_recipe.php';
 require_once dirname(__FILE__).'/../Controllers/ImageController.php';
 
@@ -70,7 +71,13 @@ class RecipeController {
     
     private static function splitIngredients($input){
         $array = explode(",", $input);
-        return($array);
+        $filtered_array = array();
+        foreach ($array as $ingredient){
+            if(!Bad_word::contain($ingredient)){
+                $filtered_array[] = $ingredient;
+            }
+        }
+        return($filtered_array);
     }
     
     private static function add_to_favorite(){

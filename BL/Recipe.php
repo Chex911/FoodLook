@@ -1,6 +1,7 @@
 <?php
     require_once dirname(__FILE__).'/../DAL/RecipeDAL.php';
     require_once dirname(__FILE__).'/Ingredient.php';
+    require_once dirname(__FILE__).'/Bad_word.php';
     require_once dirname(__FILE__).'/Image.php';
     require_once dirname(__FILE__).'/Recipe_has_image.php';
     require_once dirname(__FILE__).'/../DAL/Category_has_recipeDAL.php';
@@ -98,10 +99,12 @@ class Recipe{
     public function ingredientValidation($array){
         foreach ($array as $ingredient){
             if(!(Ingredient::retriveByName($ingredient))){
-                $i = new Ingredient();
-                $i -> name = $ingredient;
-                $i -> validation = FALSE;
-                $i -> create();
+                if(!(Bad_word::contain($ingredient))){
+                    $i = new Ingredient();
+                    $i -> name = $ingredient;
+                    $i -> validation = FALSE;
+                    $i -> create();
+                }
             } 
         }
         return(TRUE);

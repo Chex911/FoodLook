@@ -20,17 +20,15 @@ class IngredientDAL{
     
     public static function delete($e){
         $db= DB::getDB();
-        $query = "DELETE FROM ingredient WHERE name=:name AND type=:type  ";
+        $query = "DELETE FROM ingredient WHERE name=:name";
         
         $params =
         [
-            ':name'=>$e->name,
-            ':type'=>$e->type
+            ':name'=>$e->name
         ];
         
         $res = $db -> query($query, $params);
         return($res);
-        
     }
     
     public static function update($e){
@@ -67,7 +65,7 @@ class IngredientDAL{
     
     public static function retriveByName($name){
         $db=DB::getDB();
-        $query="SELECT id FROM ingredient WHERE name = :name";
+        $query="SELECT id FROM ingredient WHERE name=:name";
         
         $params =
         [
@@ -128,6 +126,36 @@ class IngredientDAL{
         }else{
             return(FALSE);
         }
+    }
+    
+    public static function valid($e){
+        $db= DB::getDB();
+        $query = "UPDATE ingredient SET validation=:validation WHERE name=:name";
+        
+        $params =
+        [
+            ':validation'=>$e->validation,
+            ':name'=>$e->name
+        ];
+        
+        $res = $db -> query($query, $params);
+        return($res);
+    }
+    
+    public static function setCorrect($e){
+        $db= DB::getDB();
+        $query = "UPDATE recipe_has_ingredient "
+                . "SET ingredient_id=(SELECT id from ingredient where name=:name) "
+                . "WHERE ingredient_id=:ingredient_id;";
+        
+        $params =
+        [
+            ':name'=>$e->name,
+            ':ingredient_id'=>$e->id
+        ];
+        
+        $res = $db -> query($query, $params);
+        return($res);
     }
 }
 

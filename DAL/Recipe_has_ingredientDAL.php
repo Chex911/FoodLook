@@ -31,6 +31,20 @@ class Recipe_has_ingredientDAL{
         
     }
     
+    public static function delete_byIngredientID($e){
+        $db= DB::getDB();
+        $query = "DELETE FROM recipe_has_ingredient WHERE ingredient_id=:ingredient_id";
+        
+        $params =
+        [
+            ':ingredient_id'=>$e->ingredient_id
+        ];
+        
+        $res = $db -> query($query, $params);
+        return($res);
+        
+    }
+    
     public static function update($e){
         $db= DB::getDB();
         $query = "UPDATE  recipe_has_ingredient SET  ingredient_id=:ingredient_id,recipe_id=:recipe_id WHERE ingredient_id=:ingredient_id AND recipe_id=:recipe_id ";

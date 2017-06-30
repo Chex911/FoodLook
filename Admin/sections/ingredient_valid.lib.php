@@ -7,7 +7,7 @@ require_once dirname(__FILE__).'/../../BL/Ingredient.php';
         $array = Ingredient::getNotValid();
 
         foreach ($array as $ingredient){
-           echo '<option value="'.$ingredient->name.'">'.$ingredient->name.'</option>'; 
+           echo '<option id="'.$ingredient->id.'" value="'.$ingredient->name.'">'.$ingredient->name.'</option>'; 
         }
     ?>
 </select>
@@ -16,6 +16,9 @@ require_once dirname(__FILE__).'/../../BL/Ingredient.php';
         <label class="ingredient-edit-label">Ingredient validation:</label>
         <div class="ingredient-edit-slide" style="display: none">
             <input class="admin-input" id="ingredient-edit-input" type="text" name="recipe-name-user"/>
+        </div>
+        <div style="display: none">
+            <input id="wrong-id" type="text" name="wrong-id-input"/>
         </div>
     </div>
     <button class="delete-btn" id="ingredient-delete-btn" type="submit" value="Delete" name="delete-ingredient-admin"/>Delete</button>
@@ -31,6 +34,7 @@ require_once dirname(__FILE__).'/../../BL/Ingredient.php';
     function fillInput(index)
     {
        $('#ingredient-edit-input').val(index);
+       $('#wrong-id').val(index);
     }
  </script>
 
